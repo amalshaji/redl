@@ -35,8 +35,12 @@ def main():
     print("downloading video")
     utils.download(video_url, "video.mp4")
 
-    print("downloading audio")
-    utils.download(audio_url, "audio.mp4")
+    try:
+        print("downloading audio")
+        utils.download(audio_url, "audio.mp4")
+    except Exception:
+        print("no audio available for the video, file saved to video.mp4")
+        sys.exit(0)
 
     if not utils.check_exec():
         print("ffmpeg is not on PATH, please install or add it to PATH")
