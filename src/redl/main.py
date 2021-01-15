@@ -38,6 +38,10 @@ def main():
     print("downloading audio")
     utils.download(audio_url, "audio.mp4")
 
+    if not utils.check_exec():
+        print("ffmpeg is not on PATH, please install or add it to PATH")
+        sys.exit(0)
+
     # merge audio and video to a single file
     utils.merge_audio_video("video.mp4", "audio.mp4")
 

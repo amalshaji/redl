@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "redl"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "A cli to download reddit video along with audio"
+readme = "README.md"
+homepage = "https://github.com/amalshaji/redl"
+repository = "https://github.com/amalshaji/redl"
 authors = ["Amal Shaji <amalshajid@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.6"
 requests = "^2.25.1"
 tqdm = "^4.56.0"
 

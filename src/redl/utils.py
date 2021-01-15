@@ -77,13 +77,34 @@ def get_video_url(post_url: str) -> str:
     # url = data[0]["data"]["children"][0]["data"]["crosspost_parent_list"][0][
     #     "secure_media"
     # ]["reddit_video"]["fallback_url"]
+    url: str = None
 
-    url = data[0]["data"]["children"][0]["data"]["secure_media"]["reddit_video"][
-        "fallback_url"
-    ]
+    try:
+        url = data[0]["data"]["children"][0]["data"]["secure_media"]["reddit_video"][
+            "fallback_url"
+        ]
+    except KeyError:
+        print("Cannot get URL from post")
+        sys.exit(0)
 
     return url
 
 
 def generate_random_target() -> str:
+    """Generate a random target file name
+
+    Returns:
+        str: A random string of length 6
+    """
     return str(uuid.uuid4())[:6]
+
+
+def check_exec() -> bool:
+    """Check if ffmpeg exists on PATH
+
+    Returns:
+        bool: True for exists
+    """
+    from shutil import which
+
+    return which("ffmpeg") is not None
