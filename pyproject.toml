@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "redl"
-version = "0.1.1"
+version = "0.1.2"
 description = "A cli to download reddit video along with audio"
 readme = "README.md"
 homepage = "https://github.com/amalshaji/redl"
